@@ -10,6 +10,13 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use {
+	  'folke/trouble.nvim',
+      as = 'trouble',
+	  -- or                            , branch = '0.1.x',
+	  requires = { {'nvim-tree/nvim-web-devicons'} }
+  }
+
   --[[
   use ({ "rose-pine/neovim", 
 	  as = "rose-pine",
