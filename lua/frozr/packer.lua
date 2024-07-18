@@ -13,6 +13,11 @@ return require('packer').startup(function(use)
 
   use { 'folke/trouble.nvim', as = "trouble" }
 
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
