@@ -9,15 +9,9 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-
-  use {
-	  'folke/trouble.nvim',
-      as = 'trouble',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-tree/nvim-web-devicons'} }
-  }
-
   use { "catppuccin/nvim", as = "catppuccin" }
+
+  use { 'folke/trouble.nvim', as = "trouble" }
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('theprimeagen/harpoon')
