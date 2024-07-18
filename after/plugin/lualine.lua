@@ -1,7 +1,8 @@
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'nightfly',
+    theme = 'horizon',
     component_separators = { left = '|', right = '|'},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -38,3 +39,6 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+vim.o.showmode = false  -- Disable showing the mode (like -- INSERT --) at the bottom
+vim.o.showcmd = false   -- Disable showing the command being typed
