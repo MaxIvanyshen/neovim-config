@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
 
   use { 'folke/trouble.nvim', as = "trouble" }
 
+  use { 'tpope/vim-fugitive', as = "fugitive" }
+
   use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true }
