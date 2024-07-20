@@ -12,3 +12,5 @@ vim.keymap.set("n", "<leader>h", '<cmd>cprev<CR>zz'); -- go to next item in quic
 
 vim.keymap.set("n", "<leader>]", '<cmd>cnewer<CR>zz'); -- go to next quickfix list
 vim.keymap.set("n", "<leader>[", '<cmd>colder<CR>zz'); -- go to previous quickfix list
+
+vim.keymap.set("n", "<leader>sf", 'yiw <cmd>execute \'vimgrep /\' . escape(@", \'/\') . \'/ %\'<CR>zz'); -- go to next item in quickfix list
