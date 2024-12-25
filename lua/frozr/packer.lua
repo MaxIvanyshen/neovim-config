@@ -24,10 +24,6 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
 
-  use 'ray-x/go.nvim'
-  use 'ray-x/guihua.lua' -- recommended if need floating window support
-  use 'neovim/nvim-lspconfig'
-
   use {
 	'VonHeikemen/lsp-zero.nvim',
 	requires = {
