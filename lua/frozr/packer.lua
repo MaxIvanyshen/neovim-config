@@ -11,6 +11,8 @@ return require('packer').startup(function(use)
   }
   use { "catppuccin/nvim", as = "catppuccin" }
 
+  use { "scottmckendry/cyberdream.nvim", as = "cyberdream"}
+
   use { 'folke/trouble.nvim', as = "trouble" }
 
   use { 'tpope/vim-fugitive', as = "fugitive" }
