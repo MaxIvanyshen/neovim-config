@@ -52,3 +52,25 @@ cmp.setup({
   }),
 })
 
+function GoFormatting()
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*.go",
+        callback = function()
+            -- First run goimports to handle imports
+            local imports = vim.fn.system("goimports", vim.fn.getline(1, "$"))
+            if vim.v.shell_error == 0 then
+                vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(imports, "\n"))
+            end
+
+            -- Then run gofmt for formatting
+            local formatted = vim.fn.system("gofmt", vim.fn.getline(1, "$"))
+            if vim.v.shell_error == 0 then
+                vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(formatted, "\n"))
+            else
+                print("gofmt failed: " .. vim.trim(formatted))
+            end
+        end,
+    })
+end
+
+GoFormatting()
