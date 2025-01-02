@@ -1,3 +1,4 @@
+vim.keymap.set("n", "<leader>gap", '<cmd>Git add -p<CR>');
 vim.keymap.set("n", "<leader>gaa", '<cmd>Git add .<CR>');
 vim.keymap.set("n", "<leader>gc", '<cmd>Git commit <CR>');
 vim.keymap.set("n", "<leader>gp", '<cmd>Git push<CR>');
