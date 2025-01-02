@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/max/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  cyberdream = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/cyberdream",
+    url = "https://github.com/scottmckendry/cyberdream.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/max/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -154,11 +159,21 @@ _G.packer_plugins = {
     path = "/home/max/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = false,
     needs_bufread = false,
     path = "/home/max/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
+  },
+  onedark = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/onedark",
+    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -174,11 +189,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/max/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  trouble = {
-    loaded = true,
-    path = "/home/max/.local/share/nvim/site/pack/packer/start/trouble",
-    url = "https://github.com/folke/trouble.nvim"
   },
   undotree = {
     loaded = true,

@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
 
   use { "scottmckendry/cyberdream.nvim", as = "cyberdream"}
 
+  use { 'navarasu/onedark.nvim', as = "onedark" }
+
   use { 'folke/trouble.nvim', as = "trouble" }
 
   use { 'tpope/vim-fugitive', as = "fugitive" }
@@ -24,6 +26,7 @@ return require('packer').startup(function(use)
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('theprimeagen/harpoon')
+
   use('mbbill/undotree')
 
   use {

@@ -1,3 +1,5 @@
+require('trouble').setup()
+
 -- Key mappings using nvim_set_keymap
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
