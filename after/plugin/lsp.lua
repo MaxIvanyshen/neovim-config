@@ -57,17 +57,27 @@ function GoFormatting()
         pattern = "*.go",
         callback = function()
             -- First run goimports to handle imports
-            local imports = vim.fn.system("goimports", vim.fn.getline(1, "$"))
+            local imports_output = vim.fn.system("goimports", vim.fn.getline(1, "$"))
             if vim.v.shell_error == 0 then
-                vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(imports, "\n"))
+                local imports_lines = vim.split(imports_output, "\n")
+                -- Remove the last empty line if it exists
+                if imports_lines[#imports_lines] == "" then
+                    table.remove(imports_lines)
+                end
+                vim.api.nvim_buf_set_lines(0, 0, -1, false, imports_lines)
             end
 
             -- Then run gofmt for formatting
-            local formatted = vim.fn.system("gofmt", vim.fn.getline(1, "$"))
+            local fmt_output = vim.fn.system("gofmt", vim.fn.getline(1, "$"))
             if vim.v.shell_error == 0 then
-                vim.api.nvim_buf_set_lines(0, 0, -1, false, vim.split(formatted, "\n"))
+                local fmt_lines = vim.split(fmt_output, "\n")
+                -- Remove the last empty line if it exists
+                if fmt_lines[#fmt_lines] == "" then
+                    table.remove(fmt_lines)
+                end
+                vim.api.nvim_buf_set_lines(0, 0, -1, false, fmt_lines)
             else
-                print("gofmt failed: " .. vim.trim(formatted))
+                print("gofmt failed: " .. vim.trim(fmt_output))
             end
         end,
     })
