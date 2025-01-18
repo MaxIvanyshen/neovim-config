@@ -82,5 +82,23 @@ function GoFormatting()
         end,
     })
 end
-
 GoFormatting()
+
+function PrettierFormatting()
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = {"*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", "*.scss", "*.html"},
+        callback = function()
+            local current_view = vim.fn.winsaveview()  -- Save the current cursor position and view
+            local prettier_output = vim.fn.system("prettier --write " .. vim.fn.expand("%:p"))
+            
+            if vim.v.shell_error == 0 then
+                -- Reload the buffer without moving the cursor
+                vim.cmd('edit!')
+                vim.fn.winrestview(current_view)
+            else
+                print("Prettier formatting failed: " .. vim.trim(prettier_output))
+            end
+        end,
+    })
+end
+PrettierFormatting()

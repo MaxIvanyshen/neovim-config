@@ -24,6 +24,8 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
+vim.opt.statusline=""
+
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "no"
 vim.opt.isfname:append("@-@")

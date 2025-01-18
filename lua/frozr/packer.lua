@@ -15,6 +15,8 @@ return require('packer').startup(function(use)
 
   use { 'navarasu/onedark.nvim', as = "onedark" }
 
+  use { 'xiyaowong/transparent.nvim', as = "transparent" }
+
   use { 'folke/trouble.nvim', as = "trouble" }
 
   use { 'tpope/vim-fugitive', as = "fugitive" }
