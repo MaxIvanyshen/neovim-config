@@ -1,6 +1,6 @@
 
 function Color(color)
-    color = color or "cyberdream"
+    color = color or "tokyonight-moon"
     vim.cmd.colorscheme(color)
 
     -- Enable for transparent background

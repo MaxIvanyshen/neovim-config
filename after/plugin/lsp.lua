@@ -88,17 +88,58 @@ function PrettierFormatting()
     vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = {"*.js", "*.jsx", "*.ts", "*.tsx", "*.json", "*.css", "*.scss", "*.html"},
         callback = function()
-            local current_view = vim.fn.winsaveview()  -- Save the current cursor position and view
-            local prettier_output = vim.fn.system("prettier --write " .. vim.fn.expand("%:p"))
-            
-            if vim.v.shell_error == 0 then
-                -- Reload the buffer without moving the cursor
-                vim.cmd('edit!')
-                vim.fn.winrestview(current_view)
+            -- Check if LSP formatter is available
+            if #vim.lsp.buf_get_clients() > 0 then
+                vim.lsp.buf.format({ async = false })
             else
-                print("Prettier formatting failed: " .. vim.trim(prettier_output))
+                -- Fallback to Prettier
+                local current_buffer = vim.api.nvim_get_current_buf()
+                local filename = vim.api.nvim_buf_get_name(current_buffer)
+                
+                -- Read the current buffer content
+                local lines = vim.api.nvim_buf_get_lines(current_buffer, 0, -1, false)
+                
+                -- Run Prettier on the content
+                local prettier_output = vim.fn.system("prettier --stdin-filepath " .. filename, lines)
+                
+                if vim.v.shell_error == 0 then
+                    -- Split the output into lines
+                    local formatted_lines = vim.split(prettier_output, "\n")
+                    
+                    -- Remove the last empty line if it exists
+                    if formatted_lines[#formatted_lines] == "" then
+                        table.remove(formatted_lines)
+                    end
+                    
+                    -- Replace buffer content
+                    vim.api.nvim_buf_set_lines(current_buffer, 0, -1, false, formatted_lines)
+                else
+                    print("Prettier formatting failed: " .. vim.trim(prettier_output))
+                end
             end
         end,
     })
 end
-PrettierFormatting()
+
+function JsFormat()
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = {"*.ts", "*.tsx"},
+        callback = function()
+            -- Use LSP formatting if available, otherwise fall back to prettier
+            if vim.lsp.buf.format then
+                vim.lsp.buf.format({ async = false })
+            else
+                local prettier_cmd = string.format("prettier --write %s", vim.fn.expand("%:p"))
+                local output = vim.fn.system(prettier_cmd)
+
+                if vim.v.shell_error ~= 0 then
+                    print("Formatting error: ", output)
+                else
+                    -- Reload the buffer to reflect changes
+                    vim.cmd("edit!")
+                end
+            end
+        end
+    })
+end
+JsFormat()

@@ -17,9 +17,19 @@ return require('packer').startup(function(use)
 
   use { 'xiyaowong/transparent.nvim', as = "transparent" }
 
+  use { 'mfussenegger/nvim-dap', as = "dap" }
+
+  use { 'leoluz/nvim-dap-go', as = "dap-go" }
+
+  use { 'nvim-neotest/nvim-nio' }
+
+  use { 'rcarriga/nvim-dap-ui' }
+
   use { 'folke/trouble.nvim', as = "trouble" }
 
   use { 'tpope/vim-fugitive', as = "fugitive" }
+
+  use { 'folke/tokyonight.nvim', as = "tokyonight" }
 
   use {
       'nvim-lualine/lualine.nvim',

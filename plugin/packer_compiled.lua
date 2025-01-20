@@ -190,6 +190,16 @@ _G.packer_plugins = {
     path = "/home/max/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  transparent = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/transparent",
+    url = "https://github.com/xiyaowong/transparent.nvim"
+  },
+  trouble = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/trouble",
+    url = "https://github.com/folke/trouble.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/home/max/.local/share/nvim/site/pack/packer/start/undotree",
