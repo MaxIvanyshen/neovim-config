@@ -25,6 +25,8 @@ return require('packer').startup(function(use)
 
   use { 'rcarriga/nvim-dap-ui' }
 
+  use { 'theHamsta/nvim-dap-virtual-text' } 
+
   use { 'folke/trouble.nvim', as = "trouble" }
 
   use { 'tpope/vim-fugitive', as = "fugitive" }
