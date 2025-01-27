@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
 
   use { "scottmckendry/cyberdream.nvim", as = "cyberdream"}
 
+  use { 'f-person/git-blame.nvim' }
+
   use { 'navarasu/onedark.nvim', as = "onedark" }
 
   use { 'xiyaowong/transparent.nvim', as = "transparent" }
