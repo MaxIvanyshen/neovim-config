@@ -17,3 +17,6 @@ vim.keymap.set("n", "<leader>sf", 'yiw <cmd>execute \'vimgrep /\' . escape(@", \
 -- Some useful stuff
 vim.keymap.set("n", "<leader>vs", '<cmd>vsplit<CR><C-w>l'); -- split screen vertically and move to right split
 
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true }) -- Move selected lines down
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true }) -- Move selected lines up
+
