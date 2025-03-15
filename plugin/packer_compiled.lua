@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/max/.cache/nvim/packer_hererocks/2.1.1716656478/share/lua/5.1/?.lua;/home/max/.cache/nvim/packer_hererocks/2.1.1716656478/share/lua/5.1/?/init.lua;/home/max/.cache/nvim/packer_hererocks/2.1.1716656478/lib/luarocks/rocks-5.1/?.lua;/home/max/.cache/nvim/packer_hererocks/2.1.1716656478/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/max/.cache/nvim/packer_hererocks/2.1.1716656478/lib/lua/5.1/?.so"
+local package_path_str = "/home/max/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/home/max/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/home/max/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/home/max/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/max/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -114,6 +114,16 @@ _G.packer_plugins = {
     path = "/home/max/.local/share/nvim/site/pack/packer/start/cyberdream",
     url = "https://github.com/scottmckendry/cyberdream.nvim"
   },
+  dap = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["dap-go"] = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/dap-go",
+    url = "https://github.com/leoluz/nvim-dap-go"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/max/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -123,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/max/.local/share/nvim/site/pack/packer/start/fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["git-blame.nvim"] = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
+    url = "https://github.com/f-person/git-blame.nvim"
   },
   harpoon = {
     loaded = true,
@@ -154,10 +169,25 @@ _G.packer_plugins = {
     path = "/home/max/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/max/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-nio"] = {
+    loaded = true,
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/nvim-nio",
+    url = "https://github.com/nvim-neotest/nvim-nio"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -190,10 +220,10 @@ _G.packer_plugins = {
     path = "/home/max/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  transparent = {
+  tokyonight = {
     loaded = true,
-    path = "/home/max/.local/share/nvim/site/pack/packer/start/transparent",
-    url = "https://github.com/xiyaowong/transparent.nvim"
+    path = "/home/max/.local/share/nvim/site/pack/packer/start/tokyonight",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   trouble = {
     loaded = true,
