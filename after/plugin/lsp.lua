@@ -56,9 +56,18 @@ function GoFormatting()
     vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = "*.go",
         callback = function()
-            vim.fn.system("goimports -w " .. vim.fn.expand("%"))
-            vim.fn.system("gofmt -w " .. vim.fn.expand("%"))
-            vim.cmd("edit")  -- Reload the buffer to see changes
+            -- Run goimports and gofmt in a single system call
+            local output = vim.fn.system("goimports | gofmt", vim.fn.getline(1, "$"))
+            if vim.v.shell_error == 0 then
+                local fmt_lines = vim.split(output, "\n")
+                -- Remove the last empty line if it exists
+                if fmt_lines[#fmt_lines] == "" then
+                    table.remove(fmt_lines)
+                end
+                vim.api.nvim_buf_set_lines(0, 0, -1, false, fmt_lines)
+            else
+                print("Formatting failed: " .. vim.trim(output))
+            end
         end,
     })
 end
