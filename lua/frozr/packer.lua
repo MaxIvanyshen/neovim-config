@@ -17,7 +17,9 @@ return require('packer').startup(function(use)
 
   use { 'navarasu/onedark.nvim', as = "onedark" }
 
- use { 'xiyaowong/transparent.nvim', as = "transparent" }
+  use { 'sphamba/smear-cursor.nvim' }
+
+  use { 'xiyaowong/transparent.nvim', as = "transparent" }
 
   use { 'mfussenegger/nvim-dap', as = "dap" }
 
