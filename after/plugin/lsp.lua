@@ -133,15 +133,15 @@ function JsFormat()
     vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = {"*.ts", "*.tsx"},
         callback = function()
-            -- Use LSP formatting if available, otherwise fall back to prettier
+            -- Use LSP formatting if available, otherwise fall back to eslint --fix
             if vim.lsp.buf.format then
                 vim.lsp.buf.format({ async = false })
             else
-                local prettier_cmd = string.format("prettier --write %s", vim.fn.expand("%:p"))
-                local output = vim.fn.system(prettier_cmd)
+                local eslint_cmd = string.format("eslint --fix %s", vim.fn.expand("%:p"))
+                local output = vim.fn.system(eslint_cmd)
 
                 if vim.v.shell_error ~= 0 then
-                    print("Formatting error: ", output)
+                    print("ESLint fixing error: ", output)
                 else
                     -- Reload the buffer to reflect changes
                     vim.cmd("edit!")
